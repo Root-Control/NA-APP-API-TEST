@@ -12,29 +12,31 @@ import publicRoutes from "./api/public";
 
 import bodyParser from "body-parser";
 
-const app = express();
+function startApp() {
+  const app = express();
 
-app.use(cors());
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(
-  bodyParser.urlencoded({
-    limit: "50mb",
-    extended: true,
-    parameterLimit: 50000,
-  })
-);
-
-app.use("/auth", authRoutes);
-app.use("/public", publicRoutes);
-app.use("/api/v1", apiRoutes);
-
-app.get("/", (req, res) => {
-  res.send("API asamblea");
-});
-
-app.listen({ port: config.port }, () => {
-  logger.info(`\n\n🚀 Server ready at http://localhost:${config.port}\n\n`);
-});
+  app.use(cors());
+  app.use(bodyParser.json({ limit: "50mb" }));
+  app.use(
+    bodyParser.urlencoded({
+      limit: "50mb",
+      extended: true,
+      parameterLimit: 50000,
+    })
+  );
+  
+  app.use("/auth", authRoutes);
+  app.use("/public", publicRoutes);
+  app.use("/api/v1", apiRoutes);
+  
+  app.get("/", (req, res) => {
+    res.send("API asamblea");
+  });
+  
+  app.listen({ port: config.port }, () => {
+    logger.info(`\n\n🚀 Server ready at http://localhost:${config.port}\n\n`);
+  });
+}
 
 process.on("uncaughtException", (e) => {
   console.log(
@@ -46,4 +48,4 @@ process.on("uncaughtException", (e) => {
   process.exit(1);
 });
 
-module.exports = app;
+module.exports = startApp;

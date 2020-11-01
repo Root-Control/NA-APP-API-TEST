@@ -7,7 +7,7 @@
     "build": "babel src -d dist",
     "start": "babel-node dist/index.js | bunyan",
     "deploy": "now --dotenv=.env.production --public ",
-    "dev": "nodemon src/index.js --exec babel-node | bunyan",
+    "dev": "nodemon app.js --exec babel-node | bunyan",
     "dev-wil": "nodemon src/index.js --exec babel-node | bunyan"
   },
   "author": "Jose Pirela <jjpirela93@gmail.com>",
