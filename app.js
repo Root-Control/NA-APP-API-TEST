@@ -10,6 +10,8 @@ if (env && env === 'production') {
 } else {
     appPath = './src/index';
     console.log('Development');
+    const error = 'Your environment is develoment, you cannot use or run "node app.js" since your environment is production';
+    throw error
 }
 
 const startApp = require(appPath);
