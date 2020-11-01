@@ -4,6 +4,13 @@ const env = process.env.NODE_ENV;
 
 let appPath;
 
+console.log(env);
+console.log(env);
+console.log(env);
+console.log(env);
+console.log(env);
+console.log(env);
+
 if (env && env === 'production') {
     appPath = './dist/index';
     console.log('Production');
