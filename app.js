@@ -1,24 +1,15 @@
 'use strict';
 
-const env = process.env.NODE_ENV;
+let env = process.env.NODE_ENV;
 
 let appPath;
 
-console.log(env);
-console.log(env);
-console.log(env);
-console.log(env);
-console.log(env);
-console.log(env);
-
-if (env && env === 'production') {
+if (env && env === 'production' || env === 'development') {
     appPath = './dist/index';
-    console.log('Production');
+    console.log(`env  = ${env}`);
 } else {
     appPath = './src/index';
-    console.log('Development');
-    const error = 'Your environment is develoment, you cannot use or run "node app.js" since your environment is production';
-    throw error
+    console.log('Local');
 }
 
 const startApp = require(appPath);

@@ -17,16 +17,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var db = {};
 
 var conf = {
-  database: process.env.DB_NAME,
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_HOST,
+  database: 'test',
+  username: 'admin',
+  password: 'Sm!KF&)aJsqw2#b',
+  host: 'asamblea-dev.corpwfzdi4er.us-east-1.rds.amazonaws.com',
   dialect: "mysql",
   logging: function logging(s) {
     return (0, _debug2.default)(s);
   },
   operatorsAliases: false
 };
+
+// const conf = {
+//   database: process.env.DB_NAME,
+//   username: process.env.DB_USERNAME,
+//   password: process.env.DB_PASSWORD,
+//   host: process.env.DB_HOST,
+//   dialect: "mysql",
+//   logging: (s) => debug(s),
+//   operatorsAliases: false,
+// };
 
 var sequelize = new _sequelize2.default(conf);
 
